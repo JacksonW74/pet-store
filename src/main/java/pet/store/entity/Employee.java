@@ -8,22 +8,23 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
+import lombok.ToString;
 
-@Data
 @Entity
+@Data
 public class Employee {
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long employee_Id;
+    private Long employeeId;
 
-    private String firstName;
-    private String lastName;
-    private String email;
-    private String jobTitle;
+    private String employeeName;
+    private String employeePosition;
 
-    // Many-to-One relationship with PetStore
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "pet_store_id")
+    @EqualsAndHashCode.Exclude
+    @ToString.Exclude
     private PetStore petStore;
 }
+

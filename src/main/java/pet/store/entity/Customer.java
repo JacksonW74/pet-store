@@ -1,6 +1,5 @@
 package pet.store.entity;
 
-import java.util.HashSet;
 import java.util.Set;
 
 import jakarta.persistence.CascadeType;
@@ -10,20 +9,22 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.ManyToMany;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
+import lombok.ToString;
 
-@Data
 @Entity
+@Data
 public class Customer {
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long customer_Id;
+    private Long customerId;
 
-    private String firstName;
-    private String lastName;
-    private String email;
+    private String customerName;
+    private String customerEmail;
 
-    // Many-to-Many relationship with PetStore
     @ManyToMany(mappedBy = "customers", cascade = CascadeType.PERSIST)
-    private Set<PetStore> petStore = new HashSet<>();
+    @EqualsAndHashCode.Exclude
+    @ToString.Exclude
+    private Set<PetStore> petStores;
 }
+

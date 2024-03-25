@@ -7,4 +7,11 @@ Began creating a Java Springboot application called Pet Store
     Created tables
     Created connection
 
+Week 14
+    Inserted ability to add and update pet-stores
+
+Wee 15
+    Added delete to pet-store
+    Added CRUD to pet-store, employee and customer tables
+
 YouTube video: https://youtu.be/qk_7VsDulAE
